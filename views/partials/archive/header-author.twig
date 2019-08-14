@@ -1,0 +1,6 @@
+<section class="c-archiveheader c-archiveheader--author">
+	<h1 class="c-archiveheader__title c-main__title"><a href="{{ fn('get_author_posts_url', queried_object.ID) }}">{{ _x('Autor: %s', 'Author archive header title', 'sht')|format(queried_object.display_name) }}</a></h1>
+	{% if fn('get_the_author_meta', 'user_description', queried_object.ID) is not empty %}
+		<div class="c-archiveheader__description">{{ fn('get_the_author_meta', 'user_description', queried_object.ID) }}</div>
+	{% endif %}
+</section>

@@ -1,0 +1,13 @@
+{% if queried_object and queried_object.name is not empty %}
+	<section class="c-archiveheader c-archiveheader--category">
+		<h1 class="c-archiveheader__title c-main__title">{{ _x('Beiträge aus der Kategorie «%s»', 'Archive header title', 'sht')|format(
+			'<a href="%1$s">%2$s</a>'|format(
+				fn('get_term_link', queried_object),
+				fn('single_term_title', '', false)
+			)
+		) }}</h1>
+		{% if fn('term_description', queried_object) is not empty %}
+			<div class="c-archiveheader__description">{{ fn('term_description', queried_object) }}</div>
+		{% endif %}
+	</section>
+{% endif %}

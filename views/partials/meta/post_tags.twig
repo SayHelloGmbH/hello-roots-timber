@@ -1,0 +1,10 @@
+{% if post.terms('tags') is not empty %}
+	<div class="c-meta c-meta--tags">
+		<p class="c-meta__title">{{ _x('Schlagwörter', 'Text before meta tag list', 'sht') }}</p>
+		<ul class="c-meta__entries c-meta__entries--tags">
+			{% for term in post.terms('tags') %}
+				<li class="c-meta__entry c-meta__entry--tag"><a class="c-meta__link" href="{{ term.link }}">{{ term.name }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endif %}

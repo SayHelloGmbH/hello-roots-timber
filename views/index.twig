@@ -1,0 +1,24 @@
+{% extends "layouts/master.twig" %}
+
+{% block content %}
+	{% if posts | length %}
+		<div class="c-content">
+			<section class="c-postlist c-postlist--{{ posts.0.type }}">
+
+				<div class="c-postlist__inner c-postlist__inner--{{ posts.0.type }} c-section__inner">
+
+					{% include 'partials/archive/header.twig' %}
+
+					{% include 'partials/postlist-sticky.twig' with {sticky_posts: sticky_posts} %}
+
+					{% include 'partials/postlist.twig' with {posts: posts} %}
+
+					{% include 'partials/navigation/pagination.twig' %}
+				</div>
+			</section>
+		</div>
+	{% else %}
+		{% include 'partials/singular-404.twig' %}
+	{% endif %}
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% if not queried_object  %}
+	{% set queried_object = fn('get_queried_object') %}
+{% endif %}
+
+{% if fn('is_category') %}
+
+	{% include [
+		'partials/archive/header-category.twig',
+		'partials/archive/header-default.twig'
+	] %}
+
+{% elseif fn('is_tag') %}
+
+	{% include [
+		'partials/archive/header-post_tag.twig',
+		'partials/archive/header-default.twig'
+	] %}
+
+{% elseif fn('is_author') %}
+
+	{% include [
+		'partials/archive/header-author.twig',
+		'partials/archive/header-default.twig'
+	] %}
+
+{% elseif fn('is_year') %}
+
+	{% include [
+		'partials/archive/header-year.twig',
+		'partials/archive/header-default.twig'
+	] %}
+
+{% elseif fn('is_month') %}
+
+	{% include [
+		'partials/archive/header-month.twig',
+		'partials/archive/header-default.twig'
+	] %}
+
+{% elseif fn('is_day') %}
+
+	{% include [
+		'partials/archive/header-day.twig',
+		'partials/archive/header-default.twig'
+	] %}
+
+{% elseif fn('is_search') %}
+
+	{% include [
+		'partials/archive/header-search.twig',
+		'partials/archive/header-default.twig'
+	] %}
+
+{% else %}
+
+	{% include 'partials/archive/header-default.twig' %}
+
+{% endif %}
