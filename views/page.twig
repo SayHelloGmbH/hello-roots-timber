@@ -1,0 +1,14 @@
+{% extends "layouts/master.twig" %}
+
+{% block content %}
+
+	{% if post | length %}
+		{% include [
+			'partials/singular-' ~ post.type ~ '.twig',
+			'partials/singular.twig'
+		] %}
+	{% else %}
+		{% include 'partials/singular-404.twig' %}
+	{% endif %}
+
+{% endblock %}

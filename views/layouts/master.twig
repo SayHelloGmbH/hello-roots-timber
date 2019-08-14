@@ -1,0 +1,12 @@
+{% spaceless %}
+	{% include 'partials/header.twig' %}
+	<div class="c-page__wrapper">
+		<main class="main c-page__main">
+			{% block content %}{% endblock %}
+		</main>
+		{% include 'partials/navigation/footer.twig' %}
+	</div>
+	{% include 'partials/navigation/primary.twig' %}
+
+	{% include 'partials/footer.twig' %}
+{% endspaceless %}

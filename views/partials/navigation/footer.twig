@@ -1,0 +1,53 @@
+<div class="c-footer">
+	<div class="c-footer__innerwrap o-thirdscolumns">
+		<div class="c-footer__inner">
+
+			<nav class="c-nav c-nav--footer">
+				{{ menus.footer_1 }}
+				{{ menus.footer_2 }}
+				{{ menus.footer_3 }}
+				{{ menus.footer_4 }}
+			</nav>
+
+			{% if options.contact is not empty %}
+				<address class="c-contactdetails">
+					<dl class="c-contactdetails__entries">
+						{% if options.contact.telephone is not empty %}
+							<dt class="c-contactdetails__detail c-contactdetails__key is--highlighted">{{ _x('Kontakt', 'Contact panel label', 'sht') }}</dt>
+							<dd class="c-contactdetails__detail c-contactdetails__value is--highlighted">
+								<a href="{{ options.contact.telephone|telephone_url }}">{{ options.contact.telephone }}</a>
+							</dd>
+						{% endif %}
+						{% if options.contact.infoband is not empty %}
+							<dt class="c-contactdetails__detail c-contactdetails__key">{{ _x('Infoband', 'Contact panel label', 'sht') }}</dt>
+							<dd class="c-contactdetails__detail c-contactdetails__value">
+								<a href="{{ options.contact.infoband|telephone_url }}">{{ options.contact.infoband }}</a>
+							</dd>
+						{% endif %}
+						{% if options.contact.email is not empty %}
+							<dt class="c-contactdetails__detail c-contactdetails__key">{{ _x('E-Mail', 'Contact panel label', 'sht') }}</dt>
+							<dd class="c-contactdetails__detail c-contactdetails__value">
+								<a href="{{ fn('antispambot', 'mailto:' ~ options.contact.email) }}">{{ fn('antispambot', options.contact.email) }}</a>
+							</dd>
+						{% endif %}
+						{% if options.contact.address is not empty %}
+							<dt class="c-contactdetails__detail c-contactdetails__key">{{ _x('Adresse', 'Contact panel label', 'sht') }}</dt>
+							<dd class="c-contactdetails__detail c-contactdetails__value">
+								<a href="{{ options.contact.address|maps_url }}">{{ options.contact.address }}</a>
+							</dd>
+						{% endif %}
+					</dl>
+				</address>
+			{% endif %}
+		</div>
+	</div>
+
+	<div class="c-footer__copyright">
+		<div class="c-footer__copyrightinner">
+			© Copyright
+			{{ 'now'|date('Y') }}.
+			{{ _x('Alle Rechte vorbehalten.', 'Footer copyright suffix text', 'sht') }}
+		</div>
+	</div>
+
+</div>

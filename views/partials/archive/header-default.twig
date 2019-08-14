@@ -1,0 +1,8 @@
+{% if queried_object and queried_object.name is not empty %}
+	<section class="c-archiveheader c-archiveheader--default">
+		<h1 class="c-archiveheader__title c-main__title"><a href="{{ queried_object.link }}">{{ queried_object.name }}</a></h1>
+		{% if queried_object.description is not empty %}
+			<div class="c-archiveheader__description">{{ queried_object.description }}</div>
+		{% endif %}
+	</section>
+{% endif %}

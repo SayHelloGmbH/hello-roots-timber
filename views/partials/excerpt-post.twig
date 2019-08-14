@@ -1,0 +1,15 @@
+<article class="c-postlist__entry c-postlist__entry--{{ post.post_type }} c-postexcerpt c-postexcerpt--{{ post.post_type }}{{ not post.thumbnail ? ' c-postlist__entry--noimage'}} {{ post.class }}">
+	<header class="c-postlist__entryheader">
+		<h2 class="c-postlist__entrytitle c-postexcerpt__title--{{ post.post_type }}"><a href="{{ post.link }}">{{ post.title }}</a></h2>
+		<time class="c-postlist__entrydate c-post__date">{{ _x('Veröffentlicht am %s', 'Club gallery list entry date', 'sht')|format(post.date) }}</time>
+	</header>
+	{% if post.thumbnail %}
+		<a class="c-postlist__figurelink" href="{{ post.link }}">
+			{{ fn('get_the_post_thumbnail', post.id, 'thumbnail') }}
+		</a>
+	{% endif %}
+	{% if post.preview %}
+		<p class="c-postlist__preview wp-block-sht-newslist__preview">{{ post.preview.force(true).length(60).read_more('').end('…') }}</p>
+	{% endif %}
+	<a class="c-postlist__readmore" href="{{ post.link }}">{{ _x('Weiterlesen', 'News list block button text', 'sht') }}</a>
+</article>
