@@ -1,0 +1,10 @@
+{% if post.terms('categories') is not empty %}
+	<div class="c-meta c-meta--categories">
+		<p class="c-meta__title">{{ _x('Kategorien', 'Text before meta category list', 'sht') }}</p>
+		<ul class="c-meta__entries c-meta__entries--categories">
+			{% for term in post.terms('categories') %}
+				<li class="c-meta__entry c-meta__entry--category"><a class="c-meta__link" href="{{ term.link }}">{{ term.name }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endif %}

@@ -1,0 +1,15 @@
+{% if post.thumbnail is not empty %}
+
+	{% if thumbnail_size is empty %}
+		{% set thumbnail_size = 'post_thumbnail' %}
+	{% endif %}
+
+	<div class="c-postthumbnail c-postthumbnail--{{ post.type }}">
+		<div class="c-postthumbnail__inner">
+			{{ fn('the_post_thumbnail', thumbnail_size, {
+				'class': 'c-postthumbnail__image c-postthumbnail__image--' ~ post.type
+			}) }}
+		</div>
+	</div>
+
+{% endif %}

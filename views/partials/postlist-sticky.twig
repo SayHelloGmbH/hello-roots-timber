@@ -1,0 +1,11 @@
+{% if sticky_posts is not empty %}
+	<div class="c-postlist__entries c-postlist__entries--{{ posts.0.type }} c-postlist__entries--sticky">
+		{% for post in sticky_posts %}
+			{% include [
+				'partials/excerpt-' ~ post.type ~ '.twig',
+				'partials/singular-' ~ post.type ~ '.twig',
+				'partials/singular.twig'
+			] %}
+		{% endfor %}
+	</div>
+{% endif %}

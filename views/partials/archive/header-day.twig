@@ -1,0 +1,6 @@
+<section class="c-archiveheader c-archiveheader--day">
+	<h1 class="c-archiveheader__title c-main__title"><a href="{{ fn('get_day_link', fn('get_the_time', 'Y'), fn('get_the_time', 'm'), fn('get_the_time', 'd')) }}">{{ _x('Beiträge vom %s', 'Day loop header title', 'sht')|format(fn('get_the_time', 'j. F Y')) }}</a></h1>
+	{% if fn('get_the_archive_description') is not empty %}
+		<div class="c-archiveheader__description">{{ fn('get_the_archive_description') }}</div>
+	{% endif %}
+</section>
