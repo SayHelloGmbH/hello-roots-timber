@@ -1,8 +1,2 @@
 <?php
-
-use Timber\Timber;
-
-$context = Timber::get_context();
-$context['post'] = Timber::get_post();
-
-Timber::render('partials/footer.twig', $context);
+// This file is intentionally empty, but is provided in order to remove the standard footer.php file from your Theme.
